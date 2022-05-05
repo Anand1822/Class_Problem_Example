@@ -1,0 +1,44 @@
+class Account:
+
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.balance = balance
+
+    def deposit(self, dep_amt):
+        self.balance += dep_amt
+        print('Deposit Accepted')
+
+    def withdraw(self, with_amt):
+        if self.balance > with_amt:
+            self.balance -= with_amt
+            print('Withdrawal Accepted')
+        else:
+            print('Funds Unavailable!')
+
+    def __str__(self):
+        return f"Account owner: {self.owner}\nAccount balance: ${self.balance}"
+
+
+acct1 = Account('Jose', 100)
+print(acct1)
+
+# Account owner: Jose
+# Account balance: $100
+
+print(acct1.owner)
+print(acct1.balance)
+
+# Jose
+# 100
+
+acct1.deposit(50)
+acct1.withdraw(75)
+print(acct1.balance)
+
+# Deposit Accepted
+# Withdrawal Accepted
+# 75
+
+acct1.withdraw(500)
+
+# Funds Unavailable!
